@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    font-family: calibri;
+    user-select: none;
+}
+
+body {
+    background-color: #ffd42b;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 97vh;
+    flex-direction: column;
+}
+
+h1 {
+    color: #fff;
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #38cb89;
+    font-size: 33px;
+    transition: all .6s ease-in-out;
+    opacity: 0;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    width: 700px;
+}
+
+.main div.card {
+    perspective: 800px;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    position: relative;
+}
+
+.main div.card div.inner {
+    box-shadow: 6px 6px 2px #fa8c0c;
+    transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+    border-radius: 8px;
+}
+
+.main div.inner > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    transform: rotateY(180deg);
+}
+
+div.card div.hider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+div.card div.hider img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+div.card div.inner > img,
+div.card div.inner .hider,
+div.card div.hider img {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+div.card.active div.inner {
+    transform: rotateY(180deg);
+}
